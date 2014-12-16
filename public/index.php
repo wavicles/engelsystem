@@ -85,7 +85,8 @@ $free_pages = array(
     'users',
     'ical',
     'shifts_json_export',
-    'atom'
+    'atom',
+    'statistics'
 );
 
 // Gewünschte Seite/Funktion
@@ -202,6 +203,10 @@ if (isset($_REQUEST['p']) && preg_match("/^[a-z0-9_]*$/i", $_REQUEST['p']) && (i
     require_once realpath(__DIR__ . '/../includes/pages/guest_credits.php');
     $title = credits_title();
     $content = guest_credits();
+  } elseif ($p == "statistics") {
+    require_once realpath(__DIR__ . '/../includes/pages/statistics.php');
+    $title = statistics_title();
+    $content = statistics();
   } else {
     require_once realpath(__DIR__ . '/../includes/pages/guest_start.php');
     $content = guest_start();
@@ -210,7 +215,7 @@ if (isset($_REQUEST['p']) && preg_match("/^[a-z0-9_]*$/i", $_REQUEST['p']) && (i
   // Wenn schon eingeloggt, keine-Berechtigung-Seite anzeigen
   if (isset($user)) {
     $title = _("No Access");
-    $content = _("You don't have permission to view this page. You probably have to sign in or register in order to gain access!");
+    $content = page_with_title(_("No Access"), array(_("You don't have permission to view this page. You probably have to sign in or register in order to gain access!")));
   } else {
     // Sonst zur Loginseite leiten
     redirect(page_link_to("login"));
