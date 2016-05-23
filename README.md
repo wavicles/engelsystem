@@ -1,3 +1,7 @@
+#Engelsystems
+[![Build Status](https://travis-ci.org/fossasia/engelsystem.svg?branch=testcoverage)](https://travis-ci.org/fossasia/engelsystem)
+[![Code Climate](https://codeclimate.com/github/fossasia/engelsystem/badges/gpa.svg)](https://codeclimate.com/github/fossasia/engelsystem)
+
 # Installation eines frischen Engelsystems
 
 ## Mindestvorrausetzungen (bzw. getestet unter):
